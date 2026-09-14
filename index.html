@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shri Vallabh Engineering Services - Civil Engineering & Construction</title>
+    <meta name="description" content="Shri Vallabh Engineering Services: 30 years of trusted experience in civil engineering and construction across Solapur, Pune, and Kolhapur, Maharashtra.">
+    <style>
+        /* --- CSS Reset & Base Styles --- */
+        :root {
+            --deep-espresso: #2E2018;
+            --bronze-gold: #9F6D3B;
+            --warm-caramel: #B88655;
+            --ivory-canvas: #F4F0E6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif; /* Readable sans-serif body font */
+            line-height: 1.6;
+            color: var(--deep-espresso);
+            background-color: var(--ivory-canvas);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 16px; /* Minimum 16px body text for readability */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Georgia', serif; /* Clean serif headings */
+            color: var(--deep-espresso);
+            margin-bottom: 0.5em;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.8em; }
+        h2 { font-size: 2.2em; }
+        h3 { font-size: 1.8em; }
+        h4 { font-size: 1.4em; }
+
+        a {
+            color: var(--bronze-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--warm-caramel);
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--bronze-gold);
+            color: var(--ivory-canvas);
+            padding: 14px 28px; /* Larger for comfortable tapping */
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em; /* Ensure button text is readable */
+            min-width: 150px; /* Ensure a minimum tap target size */
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--warm-caramel);
+            transform: translateY(-2px);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background-color: var(--deep-espresso);
+            color: var(--ivory-canvas);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens before hamburger */
+        }
+
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--ivory-canvas);
+            display: flex;
+            align-items: center;
+            padding: 5px 0; /* Add padding for tap target */
+        }
+
+        .logo img {
+            height: 50px; /* Adjust as needed */
+            margin-right: 10px;
+            border-radius: 50%; /* Example for a circular logo */
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--ivory-canvas);
+            font-weight: 500;
+            padding: 10px 0; /* Larger tap target */
+            position: relative;
+            font-size: 1.1em;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--bronze-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none; /* Hidden by default on desktop */
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px; /* Spacing between lines */
+            padding: 10px; /* Larger tap target */
+            min-width: 44px; /* Minimum tap target size */
+            min-height: 44px; /* Minimum tap target size */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-toggle span {
+            width: 30px; /* Width of hamburger lines */
+            height: 3px;
+            background-color: var(--ivory-canvas);
+            transition: all 0.3s ease;
+        }
+
+        /* Hamburger animation */
+        .menu-toggle.open span:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+        .menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.open span:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(46, 32, 24, 0.7), rgba(46, 32, 24, 0.7)), url('https://via.placeholder.com/1920x800/2E2018/F4F0E6?text=Civil+Engineering+Background') no-repeat center center/cover; /* Placeholder background image */
+            color: var(--ivory-canvas);
+            text-align: center;
+            padding: 150px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .hero h1 {
+            color: var(--ivory-canvas);
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            max-width: 900px;
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            max-width: 800px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--bronze-gold);
+        }
+
+        /* --- About Section --- */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+            max-width: 700px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: block; /* Remove extra space below image */
+        }
+
+        /* --- Services Section --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background-color: var(--ivory-canvas);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-item h3 {
+            color: var(--bronze-gold);
+            margin-bottom: 15px;
+        }
+
+        .service-item p {
+            font-size: 0.95em;
+            color: var(--deep-espresso);
+        }
+
+        /* --- Projects Section --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--ivory-canvas);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background-color: #ccc; /* Placeholder background */
+        }
+
+        .project-card-content {
+            padding: 20px;
+        }
+
+        .project-card-content h3 {
+            color: var(--deep-espresso);
+            margin-bottom: 10px;
+        }
+
+        .project-card-content p {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* --- Areas Served Section --- */
+        .areas-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .area-item {
+            background-color: var(--deep-espresso);
+            color: var(--ivory-canvas);
+            padding: 20px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            min-width: 180px; /* Ensure a minimum size */
+        }
+
+        .area-item.head-office {
+            background-color: var(--bronze-gold);
+            color: var(--deep-espresso);
+        }
+
+        /* --- Contact Section --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-info-item {
+            background-color: var(--ivory-canvas);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .contact-info-item h3 {
+            color: var(--bronze-gold);
+            margin-bottom: 15px;
+        }
+
+        .contact-info-item p, .contact-info-item a {
+            color: var(--deep-espresso);
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .contact-info-item a.btn {
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--deep-espresso);
+            color: var(--ivory-canvas);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9em;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        /* --- Responsive Design --- */
+        /* Tablet and smaller (max-width: 768px) */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: nowrap; /* Prevent logo and toggle from wrapping */
+                padding: 0 20px; /* Add horizontal padding */
+            }
+
+            .nav-links {
+                display: none; /* Hide by default */
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--deep-espresso);
+                position: absolute;
+                top: 80px; /* Height of header, adjust if header height changes */
+                left: 0;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links.active {
+                display: flex; /* Show when active */
+            }
+
+            .nav-links a {
+                padding: 15px 20px; /* Larger tap target */
+                text-align: center;
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            .menu-toggle {
+                display: flex; /* Show hamburger icon */
+            }
+
+            .hero {
+                padding: 100px 20px;
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 2.8em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            section h2 {
+                margin-bottom: 40px;
+                font-size: 2em;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image {
+                order: -1; /* Image above text on mobile */
+                margin-bottom: 30px;
+            }
+
+            .services-grid, .projects-grid, .contact-grid {
+                grid-template-columns: 1fr; /* Single column layout */
+            }
+
+            .area-item {
+                width: calc(50% - 30px); /* Two columns for areas on tablet */
+                max-width: none;
+                margin: 0; /* Reset margin from flexbox gap */
+            }
+            .areas-list {
+                justify-content: space-around;
+            }
+        }
+
+        /* Mobile (max-width: 480px, specifically targeting ~375px) */
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px; /* Slightly smaller base font for very small screens */
+            }
+            .logo {
+                font-size: 1.5em;
+            }
+            .logo img {
+                height: 40px;
+            }
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9em;
+                min-width: unset;
+            }
+            section h2 {
+                font-size: 1.8em;
+            }
+            .area-item {
+                width: 100%; /* Single column for areas on mobile */
+            }
+        }
+
+        /* Desktop (min-width: 1280px) - Adjustments for larger screens */
+        @media (min-width: 1280px) {
+            h1 { font-size: 3.8em; }
+            h2 { font-size: 2.5em; }
+            .hero {
+                padding: 180px 20px;
+            }
+            .hero p {
+                font-size: 1.6em;
+            }
+            .container {
+                padding: 20px 0; /* Remove side padding on very large screens if content is max-width */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container navbar">
+            <a href="#hero" class="logo">
+                <!-- LOGO IMAGE PLACEHOLDER: Replace 'https://via.placeholder.com/50x50/9F6D3B/2E2018?text=Logo' with your logo image URL -->
+                <img src="https://via.placeholder.com/50x50/9F6D3B/2E2018?text=Logo" alt="Shri Vallabh Engineering Services Logo">
+                Shri Vallabh Engineering Services
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="nav-links" id="nav-menu">
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#areas-served">Areas Served</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Building Dreams, Engineering Excellence.</h1>
+                <p>With 30 years of unwavering experience, Shri Vallabh Engineering Services, led by a registered civil engineer, delivers trusted and quality construction solutions across Maharashtra.</p>
+                <a href="#contact" class="btn">Get a Free Consultation</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Shri Vallabh Engineering Services</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Established three decades ago, Shri Vallabh Engineering Services has been a cornerstone in the civil engineering and construction landscape. Our journey began with a commitment to quality, integrity, and client satisfaction, principles that continue to guide us today.</p>
+                        <p>We are proudly run by a registered civil engineer, ensuring that every project benefits from expert oversight and adherence to the highest professional standards. Our long-standing relationships with trusted subcontractors further strengthen our ability to deliver exceptional results, on time and within budget.</p>
+                        <p>From the initial blueprint to the final touches, we bring a wealth of knowledge and a meticulous approach to every endeavor, building not just structures, but lasting relationships based on trust and reliability.</p>
+                    </div>
+                    <div class="about-image">
+                        <!-- ABOUT IMAGE PLACEHOLDER: Replace 'https://via.placeholder.com/400x300/B88655/2E2018?text=Our+Team' with an image of your team or a civil engineering concept -->
+                        <img src="https://via.placeholder.com/400x300/B88655/2E2018?text=Our+Team" alt="Civil Engineer at work">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Expert Services</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Plan & Estimation</h3>
+                        <p>Comprehensive planning and accurate cost estimation to lay a solid foundation for your project, ensuring transparency and efficiency from the start.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Site Supervision</h3>
+                        <p>Dedicated on-site supervision by experienced professionals to ensure quality control, adherence to plans, and timely execution of all construction phases.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Home Construction</h3>
+                        <p>Complete home construction services, offering both labour-only and labour + material contracts, tailored to your vision and budget for your dream home.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Government Tender Projects</h3>
+                        <p>Expertise in handling and executing government tender projects, meeting stringent specifications and deadlines with precision and reliability.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Project Management</h3>
+                        <p>End-to-end project management, overseeing every detail from conception to completion, ensuring seamless coordination and successful outcomes.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Vastu Shastra Consultancy</h3>
+                        <p>Integrate traditional Indian architectural science with modern design for harmonious and prosperous living and working spaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Our Project Portfolio</h2>
+                <p class="text-center">We undertake a diverse range of projects for individual homeowners, contractors, businesses, private companies, and government tenders.</p>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <!-- PROJECT IMAGE PLACEHOLDER: Replace 'https://via.placeholder.com/400x220/9F6D3B/F4F0E6?text=Small+Homes' with a real project photo -->
+                        <img src="WhatsApp Image 2026-08-31 at 8.11.08 AM.jpeg" alt="Small Home Construction">
+                        <div class="project-card-content">
+                            <h3>Small Homes & Bungalows</h3>
+                            <p>Crafting comfortable and beautiful residential spaces tailored to individual needs.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <!-- PROJECT IMAGE PLACEHOLDER: Replace 'https://via.placeholder.com/400x220/B88655/2E2018?text=Commercial+Buildings' with a real project photo -->
+                        <img src="WhatsApp Image 2026-08-31 at 8.09.45 AM.jpeg" alt="Commercial Building Construction">
+                        <div class="project-card-content">
+                            <h3>Commercial Buildings</h3>
+                            <p>Developing functional and aesthetically pleasing commercial structures for various businesses.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <!-- PROJECT IMAGE PLACEHOLDER: Replace 'https://via.placeholder.com/400x220/2E2018/F4F0E6?text=Industrial+Facilities' with a real project photo -->
+                        <img src="WhatsApp Image 2026-08-31 at 8.22.58 AM.jpeg" alt="Industrial Facility Construction">
+                        <div class="project-card-content">
+                            <h3>Industrial Facilities</h3>
+                            <p>Constructing robust and efficient industrial infrastructure to support operations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="areas-served" class="areas-served">
+            <div class="container">
+                <h2>Areas We Serve</h2>
+                <p class="text-center">Our head office is located in Solapur, and we proudly extend our services across key regions in Maharashtra.</p>
+                <div class="areas-list">
+                    <div class="area-item head-office">Solapur (Head Office)</div>
+                    <div class="area-item">Pune</div>
+                    <div class="area-item">Kolhapur</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p class="text-center">We'd love to hear about your next project. Contact us today for reliable civil engineering and construction services.</p>
+                <div class="contact-grid">
+                    <div class="contact-info-item">
+                        <h3>WhatsApp Us</h3>
+                        <p>Connect instantly for queries or project discussions.</p>
+                        <!-- WHATSAPP NUMBER PLACEHOLDER: Replace '91XXXXXXXXXX' with your WhatsApp number (include country code, no + or spaces) -->
+                        <a href="https://wa.me/+919881727819" target="_blank" class="btn">WhatsApp Now</a>
+                        <p>+91 9881727819</p> <!-- Display number for users to see -->
+                    </div>
+                    <div class="contact-info-item">
+                        <h3>Call Us</h3>
+                        <p>Speak directly with our team.</p><br>
+                        <!-- PHONE NUMBER PLACEHOLDER: Replace 'tel:XXXXXXXXXX' with your phone number -->
+                        <a href="tel:9881727819" class="btn">Call Now</a>
+                        <p>9881727819</p> <!-- Display number for users to see -->
+                    </div>
+                    <div class="contact-info-item">
+                        <h3>Email Us</h3>
+                        <p>Send us your detailed inquiries.</p><br>
+                        <!-- EMAIL ADDRESS PLACEHOLDER: Replace 'info@shrivallabheng.com' with your email address -->
+                         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dsan997@gmail.com" class="btn">Email now</a>
+                         <p>dsan997@gmail.com</p> <!-- Display email for users to see -->
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 50px;">
+                    <h3>Our Head Office</h3>
+                    <!-- ADDRESS PLACEHOLDER: Replace with your full address -->
+                    <p>D-10 Abhishekh Nagar, Murarji Peth, Solapur, Maharashtra, India - 413001</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Shri Vallabh Engineering Services. All rights reserved.</p>
+            <p>Built with trust and 30 years of experience.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('open'); // For animating the burger icon
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenu.classList.remove('open');
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
